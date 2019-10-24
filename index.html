@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Homework 3</title>
+	<script src="doubleLinkedList.js" type="text/javascript"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		let elem = new Element(1);
+		let elem2 = new Element(2);
+		let elem3 = new Element(3);
+		let elem4 = new Element(4);
+		
+		elem.setNext(elem2);
+		elem.setPrev(null);
+
+		elem2.setNext(elem3);
+		elem2.setPrev(elem);
+
+		elem3.setPrev(elem2);
+		elem3.setNext(null);
+
+
+		elem.add(elem4);
+	</script>
+</body>
+</html>
