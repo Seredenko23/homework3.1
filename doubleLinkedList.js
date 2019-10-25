@@ -38,11 +38,26 @@ class Element {
 
   swap (elem) {
   	const arr = [this.next, this.prev]
-  	this.prev.setNext(elem)
-  	elem.next.setPrev(this)
-  	this.setNext(elem.getNext())
-  	this.setPrev(elem.getPrev())
-  	elem.setNext(arr[0])
-  	elem.setPrev(arr[1])
+	  if (this.prev !== null) { this.prev.setNext(elem) }
+	  if (elem.next !== null) { elem.next.setPrev(this) }
+  	if (arr[0] === elem) {
+	  	this.setNext(elem.getNext())
+	  	this.setPrev(elem)
+	  	elem.setNext(this)
+	  	elem.setPrev(arr[1])
+  	} else {
+  		this.setNext(elem.getNext())
+	  	this.setPrev(elem.getPrev())
+	  	if (this.prev !== null) { this.prev.setNext(this) }
+	  	elem.setNext(arr[0])
+	  	elem.setPrev(arr[1])
+	  	if (elem.next !== null) { elem.next.setPrev(elem) }
+  	}
+  }
+
+  contains (elem) {
+  	return this.next === elem ? true
+  	: this.next === null ? false
+  	: this.next.contains(elem)
   }
 }

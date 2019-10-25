@@ -11,18 +11,17 @@
 		let elem2 = new Element(2);
 		let elem3 = new Element(3);
 		let elem4 = new Element(4);
+		let elem5 = new Element(5);
+		let elem6 = new Element(6);
 		
-		elem.setNext(elem2);
+		elem.setNext(null);
 		elem.setPrev(null);
 
-		elem2.setNext(elem3);
-		elem2.setPrev(elem);
-
-		elem3.setPrev(elem2);
-		elem3.setNext(null);
-
-
+		elem.add(elem2);
+		elem.add(elem3);
 		elem.add(elem4);
+		elem.add(elem5);
+		elem.add(elem6);
 	</script>
 </body>
 </html>
